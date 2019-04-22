@@ -1,11 +1,8 @@
 FROM golang:1.12.4-stretch
-
 # Change worck directory
 WORKDIR /go/src/github.com/zhooravell/docker-multi-stage-builds/builder-pattern
-
 # Copy go code & dep files to worck directory
-COPY main.go	Gopkg.toml Gopkg.toml ./
-
+COPY main.go Gopkg.toml Gopkg.toml ./
 # Install dep, packages and build application
 RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh \
     && dep version \
