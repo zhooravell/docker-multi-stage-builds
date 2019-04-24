@@ -1,0 +1,16 @@
+version: "3.4"
+
+services:
+  angular:
+      build:
+        context: .
+        target: develop
+      ports:
+        - 4200:4200
+      volumes:
+        - ./app:/home/node/app:rw
+      command:
+          - /bin/sh
+          - -c
+          - |
+              cd /home/node/app && npm install && npm start
